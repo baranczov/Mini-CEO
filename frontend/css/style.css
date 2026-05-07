@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #ffffff;      /* Фон страницы теперь белый */
+    --card-bg: #00241b;      /* Карточка теперь темно-зеленая, как в презентации */
+    --input-bg: #00241b;     /* Поля ввода внутри карточки */
+    --accent: #b5ffe1;       /* Мятный акцент */
+    --text-main: #ffffff;
+    --text-dim: #d9d9d9;
+    --button-hover: #93e5ab;
+    --border-color: #4e878c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color); /* Белый фон */
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрируем по вертикали */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--card-bg); /* Темная рамка в центре */
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 36, 27, 0.2); /* Тень в тон карточки */
+}
+
+h1 {
+    color: var(--accent);
+    margin-bottom: 35px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(181, 255, 225, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.checkbox-group input {
+    accent-color: var(--accent); /* Мятный цвет чекбокса */
+    width: 18px;
+    height: 18px;
+}
+
+button {
+    grid-column: 1 / -1;
+    background-color: var(--accent);
+    color: #00241b;
+    border: none;
+    padding: 18px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(147, 229, 171, 0.4);
+}
+
+#result {
+    margin-top: 35px;
+    padding: 25px;
+    border-radius: 16px;
+    display: none;
+    background: rgba(255, 255, 255, 0.1); /* Прозрачный фон для результата */
+    border: 1px dashed var(--accent);
+    animation: fadeIn 0.5s ease;
+    text-align: center;
+}
+
+#result strong {
+    color: var(--accent);
+    font-size: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
