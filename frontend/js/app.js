@@ -12,7 +12,7 @@ document.getElementById('offerForm').addEventListener('submit', async (e) => {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/predict', {
+        const response = await fetch('https://mini-ceo-0zib.onrender.com/api/v1/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
@@ -30,7 +30,7 @@ document.getElementById('offerForm').addEventListener('submit', async (e) => {
                 <strong>Канал:</strong> ${data.channel}<br>
                 <strong>Ожидаемая ценность (EV):</strong> ${data.expected_value} ₽
             `;
-            resultDiv.style.backgroundColor = '#65b891'; // Цвет успеха
+            resultDiv.style.backgroundColor = '#65b891';
         } else {
             text.innerText = "Клиенту не рекомендуется делать предложение (низкий Uplift или риск оттока).";
             resultDiv.style.backgroundColor = '#4e878c';
